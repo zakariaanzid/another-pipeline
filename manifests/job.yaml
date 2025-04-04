@@ -11,4 +11,4 @@ spec:
       - name: pipeline-runner
         image: dockerhub:img
         command: ["python", "/app/run_pipeline.py"]
-  backoffLimit: 3  
+  backoffLimit: 4
