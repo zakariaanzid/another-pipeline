@@ -2,13 +2,13 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   name: run-kubeflow-pipeline
-  namespace: default  
+  namespace: default
 spec:
   template:
     spec:
       restartPolicy: Never
       containers:
       - name: pipeline-runner
-        image: dockerhub:img
-        command: ["python", "/app/run_pipeline.py"]
+        image: zakariaanzid/zak1:kbfargo
+        command: ["python", "/app/kbf-run.py"]
   backoffLimit: 4
