@@ -3,3 +3,5 @@
 [user]
 	email = zakaria.anzid@eviden.com
 	name = zakariaanzid
+[credential]
+	helper = store
