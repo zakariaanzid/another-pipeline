@@ -1,3 +1,17 @@
+.bash_history
+.bashrc
+.cache/
+.conda/
+.config/
+.gitconfig
+.gitignore
+.ipynb_checkpoints/
+.ipython/
+.jupyter/
+.local/
+.npm/
+
+
 # Ignore all dotfiles and dotfolders
 .*
 # But not these:
