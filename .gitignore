@@ -1,2 +1,31 @@
 **/.ipynb_checkpoints
 
+# Ignore conda environments
+.conda/
+env/
+venv/
+
+# Ignore Python cache
+__pycache__/
+*.py[cod]
+
+# Ignore cache directories
+.cache/
+.ipynb_checkpoints/
+
+# Ignore Jupyter lab/workspaces
+.jupyter/lab/workspaces/
+
+# Ignore VSCode settings if using it
+.vscode/
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore logs
+*.log
+
+# Ignore virtual environment and pip stuff
+pip-wheel-metadata/
+*.egg-info/
