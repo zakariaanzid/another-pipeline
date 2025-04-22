@@ -9,6 +9,6 @@ spec:
       restartPolicy: Never
       containers:
       - name: pipeline-runner
-        image: zakariaanzid/zak1:kbfargo_v2
+        image: zakariaanzid/zak1:kbfargo_v3
         command: ["python", "/app/kbf-run.py"]
   backoffLimit: 4
