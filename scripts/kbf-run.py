@@ -10,7 +10,7 @@ from kfp.client import Client
 client = Client()
 
 run = client.create_run_from_pipeline_package(
-    '/home/jovyan/manifests/pipHello.yaml',
+    '/app/manifests/pipHello.yaml',
     arguments={
         'recipient': 'World',
     },
