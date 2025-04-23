@@ -8,6 +8,9 @@ spec:
     matchLabels:
       job-name: run-kubeflow-pipeline
   template:
+    metadata:
+      labels:
+        job-name: run-kubeflow-pipeline
     spec:
       restartPolicy: Never
       containers:
