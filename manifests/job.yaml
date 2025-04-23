@@ -4,6 +4,9 @@ metadata:
   name: run-kubeflow-pipeline
   namespace: kubeflow
 spec:
+  selector:
+    matchLabels:
+      job-name: run-kubeflow-pipeline
   template:
     spec:
       restartPolicy: Never
