@@ -6,13 +6,13 @@
 import os
 from kfp.client import Client
 
-os.environ["NO_PROXY"] = "*.kubeflow,*.local"
+#os.environ["NO_PROXY"] = "*.kubeflow,*.local"
 
 #client = Client(host='localhost')
 client = Client(host='http://ml-pipeline.kubeflow.svc.cluster.local:8888')
 
 run = client.create_run_from_pipeline_package(
-    '/app/pipHello.yaml',
+    '/app/pipHello2.10.0.yaml',
     arguments={
         'recipient': 'World',
     },
