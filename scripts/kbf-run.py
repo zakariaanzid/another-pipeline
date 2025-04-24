@@ -3,9 +3,10 @@
 
 # In[1]:
 
-export NO_PROXY = '*.kubeflow,*.local'
-
+import os
 from kfp.client import Client
+
+os.environ["NO_PROXY"] = "*.kubeflow,*.local"
 
 #client = Client(host='localhost')
 client = Client(host='http://ml-pipeline.kubeflow.svc.cluster.local:8888')
