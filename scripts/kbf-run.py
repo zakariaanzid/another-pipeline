@@ -7,7 +7,7 @@
 from kfp.client import Client
 
 #client = Client(host='localhost')
-client = Client(host='http://ml-pipeline.kubeflow.svc.cluster.local:8888')
+client = Client(name="NO_PROXY",host='http://ml-pipeline.kubeflow.svc.cluster.local:8888')
 
 run = client.create_run_from_pipeline_package(
     '/app/pipHello.yaml',
