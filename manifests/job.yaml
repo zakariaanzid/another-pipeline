@@ -3,6 +3,9 @@ kind: Job
 metadata:
   name: run-kubeflow-pipeline
   namespace: kubeflow
+  annotations:
+    argocd.argoproj.io/hook: PreSync
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
 spec:
   selector:
     matchLabels:
@@ -13,11 +16,6 @@ spec:
         job-name: run-kubeflow-pipeline
     spec:
       restartPolicy: Never
-      initContainers:
-      - name: delete-previous-job
-        image: bitnami/kubectl:latest
-        command: ["sh", "-c", "kubectl delete job run-kubeflow-pipeline -n kubeflow --ignore-not-found"]
-
       containers:
       - name: pipeline-runner
         image: zakariaanzid/kbfargo:latest
