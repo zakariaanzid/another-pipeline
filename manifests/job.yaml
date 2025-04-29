@@ -3,9 +3,6 @@ kind: Job
 metadata:
   name: run-kubeflow-pipeline
   namespace: kubeflow
-  annotations:
-    argocd.argoproj.io/hook: PreSync
-    argocd.argoproj.io/hook-delete-policy: HookSucceeded
 spec:
   selector:
     matchLabels:
