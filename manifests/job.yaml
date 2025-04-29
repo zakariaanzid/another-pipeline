@@ -13,6 +13,11 @@ spec:
         job-name: run-kubeflow-pipeline
     spec:
       restartPolicy: Never
+      initContainers:
+      - name: delete-previous-job
+        image: bitnami/kubectl:latest
+        command: ["sh", "-c", "kubectl delete job run-kubeflow-pipeline -n kubeflow --ignore-not-found"]
+
       containers:
       - name: pipeline-runner
         image: zakariaanzid/kbfargo:latest
