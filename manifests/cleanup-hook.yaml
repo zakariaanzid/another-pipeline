@@ -1,7 +1,7 @@
 apiVersion: batch/v1
-kind: job
+kind: pod
 metadata:
-  generateName: cleanup-old-job
+  name: cleanup-old-job
   annotations:
     argocd.argoproj.io/hook: PreSync
     argocd.argoproj.io/hook-delete-policy: HookSucceeded
