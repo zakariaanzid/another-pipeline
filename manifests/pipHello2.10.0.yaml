@@ -1,4 +1,4 @@
-# Adding this comment to trigger a change so argocd could pick it up, again again
+# Adding this comment to trigger a change so argocd could pick it 
 # PIPELINE DEFINITION
 # Name: hello-pipeline
 # Inputs:
