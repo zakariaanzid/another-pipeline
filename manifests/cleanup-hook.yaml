@@ -4,7 +4,7 @@ metadata:
   name: cleanup-old-job
   annotations:
     argocd.argoproj.io/hook: PreSync
-    argocd.argoproj.io/hook-delete-policy: HookSucceeded
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded, HookFailed
 spec:
   containers:
     - name: cleanup
