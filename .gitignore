@@ -53,3 +53,5 @@ Thumbs.db
 # Ignore virtual environment and pip stuff
 pip-wheel-metadata/
 *.egg-info/
+
+.git-credentials
