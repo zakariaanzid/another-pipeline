@@ -55,3 +55,6 @@ pip-wheel-metadata/
 *.egg-info/
 
 .git-credentials
+manifests/cleanup-hook.yaml
+scripts/converter.ipynb
+requirements.txt
