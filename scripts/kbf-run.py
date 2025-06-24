@@ -14,7 +14,7 @@ from kfp.client import Client
 with open("/var/run/secrets/kubernetes.io/serviceaccount/token", "r") as f:
     token = f.read()
 
-client = kfp.Client(
+client = Client(
     host="http://ml-pipeline.kubeflow.svc.cluster.local:8888",
     existing_token=token
 )
