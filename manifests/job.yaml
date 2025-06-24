@@ -6,6 +6,9 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-options: Force=true,Replace=true
 spec:
+  selector:
+    matchLabels:
+      job-name: run-kubeflow-pipeline
   template:
     metadata:
       labels:
@@ -16,4 +19,11 @@ spec:
       - name: pipeline-runner
         image: zakariaanzid/kbfargo:latest
         command: ["python", "/app/kbf-run.py"]
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+          limits:
+            cpu: "200m"
+            memory: "256Mi"
   backoffLimit: 4
