@@ -9,7 +9,15 @@ from kfp.client import Client
 #os.environ["NO_PROXY"] = "*.kubeflow,*.local"
 
 #client = Client(host='localhost')
-client = Client(host='http://ml-pipeline.kubeflow.svc.cluster.local:8888')
+#client = Client(host='http://ml-pipeline.kubeflow.svc.cluster.local:8888')
+
+with open("/var/run/secrets/kubernetes.io/serviceaccount/token", "r") as f:
+    token = f.read()
+
+client = kfp.Client(
+    host="http://ml-pipeline.kubeflow.svc.cluster.local:8888",
+    existing_token=token
+)
 
 run = client.create_run_from_pipeline_package(
     '/app/pipHello2.10.0.yaml',
