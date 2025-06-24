@@ -8,7 +8,7 @@ from kfp.client import Client
 
 #os.environ["NO_PROXY"] = "*.kubeflow,*.local"
 
-client = Client(host='localhost')
+client = Client()
 #client = Client(host='http://ml-pipeline.kubeflow.svc.cluster.local:8888')
 
 with open("/var/run/secrets/kubernetes.io/serviceaccount/token", "r") as f:
