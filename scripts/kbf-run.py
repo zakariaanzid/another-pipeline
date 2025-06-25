@@ -12,12 +12,12 @@ from kfp.client import Client
 #client = Client(host='http://ml-pipeline.kubeflow.svc.cluster.local:8888')
 
 with open("/var/run/secrets/kubernetes.io/serviceaccount/token", "r") as f:
-    token = f.read()
+     token = f.read()
 
 client = Client(
    host="http://ml-pipeline.kubeflow.svc.cluster.local:8888",
    existing_token=token
-   )
+)
 
 
 #cliens = Client(
