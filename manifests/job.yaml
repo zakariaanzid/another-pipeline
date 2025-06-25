@@ -6,9 +6,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-options: Force=true,Replace=true
 spec:
-  selector:
-    matchLabels:
-      job-name: run-kubeflow-pipeline
+  backoffLimit: 4
   template:
     metadata:
       labels:
@@ -16,15 +14,30 @@ spec:
     spec:
       serviceAccountName: pipeline-runner
       restartPolicy: Never
+      volumes:
+        - name: kfp-token
+          projected:
+            sources:
+              - serviceAccountToken:
+                  path: token
+                  audience: pipelines.kubeflow.org
+                  expirationSeconds: 3600
       containers:
-      - name: pipeline-runner
-        image: zakariaanzid/kbfargo:latest
-        command: ["python", "/app/kbf-run.py"]
-        resources:
-          requests:
-            cpu: "100m"
-            memory: "128Mi"
-          limits:
-            cpu: "200m"
-            memory: "256Mi"
-  backoffLimit: 4
+        - name: pipeline-runner
+          image: zakariaanzid/kbfargo:latest
+          command: [python, /app/kbf-run.py]
+          env:
+            - name: KF_PIPELINES_SA_TOKEN_PATH
+              value: /var/run/secrets/kfp/token
+          volumeMounts:
+            - name: kfp-token
+              mountPath: /var/run/secrets/kfp
+              readOnly: true
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 200m
+              memory: 256Mi
+
