@@ -12,7 +12,7 @@ spec:
       labels:
         job-name: run-kubeflow-pipeline
     spec:
-      serviceAccountName: pipeline-runner
+      serviceAccountName: default
       restartPolicy: Never
       volumes:
         - name: kfp-token
@@ -23,7 +23,7 @@ spec:
                   audience: pipelines.kubeflow.org
                   expirationSeconds: 3600
       containers:
-        - name: default
+        - name: pipeline-runner-container
           image: zakariaanzid/kbfargo:latest
           command: [python, /app/kbf-run.py]
           env:
