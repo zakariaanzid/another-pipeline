@@ -12,7 +12,7 @@ spec:
       labels:
         job-name: run-kubeflow-pipeline
     spec:
-      serviceAccountName: default
+      serviceAccountName: default-editor
       restartPolicy: Never
       volumes:
         - name: kfp-token
