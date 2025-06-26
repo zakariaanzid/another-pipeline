@@ -12,7 +12,7 @@ spec:
       labels:
         job-name: run-kubeflow-pipeline
     spec:
-      serviceAccountName: default-editor
+      serviceAccountName: pipeline-runner-sa
       automountServiceAccountToken: true
       restartPolicy: Never
       volumes:
