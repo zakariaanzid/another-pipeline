@@ -2,7 +2,7 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   name: run-kubeflow-pipeline
-  namespace: kubeflow
+  namespace: zakaria
   annotations:
     argocd.argoproj.io/sync-options: Force=true,Replace=true
 spec:
@@ -23,7 +23,7 @@ spec:
                   audience: pipelines.kubeflow.org
                   expirationSeconds: 3600
       containers:
-        - name: pipeline-runner
+        - name: default
           image: zakariaanzid/kbfargo:latest
           command: [python, /app/kbf-run.py]
           env:
