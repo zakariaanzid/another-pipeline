@@ -13,6 +13,7 @@ spec:
         job-name: run-kubeflow-pipeline
     spec:
       serviceAccountName: default-editor
+      automountServiceAccountToken: true
       restartPolicy: Never
       volumes:
         - name: kfp-token
