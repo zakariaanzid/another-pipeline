@@ -22,10 +22,6 @@ spec:
           env:
             - name: KF_PIPELINES_SA_TOKEN_PATH
               value: /var/run/secrets/kfp/token
-          volumeMounts:
-            - name: kfp-token
-              mountPath: /var/run/secrets/kfp
-              readOnly: true
           resources:
             requests:
               cpu: 100m
