@@ -12,7 +12,7 @@ spec:
       labels:
         job-name: run-kubeflow-pipeline
     spec:
-      serviceAccountName: pipeline-runner-sar
+      serviceAccountName: pipeline-runner-sa
       automountServiceAccountToken: true
       restartPolicy: Never
       containers:
@@ -33,7 +33,8 @@ spec:
             limits:
               cpu: 200m
               memory: 256Mi
-     volumes:
+      volumes:
         - name: kfp-token
           secret:
             secretName: pipeline-runner-token
+
