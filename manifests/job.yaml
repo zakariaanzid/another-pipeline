@@ -6,6 +6,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-options: Force=true,Replace=true
 spec:
+  ttlSecondsAfterFinished: 3600
   backoffLimit: 4
   template:
     metadata:
