@@ -12,11 +12,20 @@ spec:
       labels:
         job-name: run-kubeflow-pipeline
     spec:
+      serviceAccountName: pipeline-runner-sa
+      automountServiceAccountToken: true
       restartPolicy: Never
       containers:
         - name: pipeline-runner-container
           image: zakariaanzid/kbfargo:latest
           command: [python, /app/kbf-run.py]
+          env:
+            - name: KF_PIPELINES_SA_TOKEN_PATH
+              value: /var/run/secrets/kfp/token
+          volumeMounts:
+            - name: kfp-token
+              mountPath: /var/run/secrets/kfp
+              readOnly: true
           resources:
             requests:
               cpu: 100m
@@ -24,4 +33,7 @@ spec:
             limits:
               cpu: 200m
               memory: 256Mi
-
+      volumes:
+        - name: kfp-token
+          secret:
+            secretName: pipeline-token
