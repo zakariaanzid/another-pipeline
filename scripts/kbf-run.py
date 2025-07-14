@@ -15,7 +15,7 @@ with open("/var/run/secrets/kfp/token", "r") as f:
 
 client = Client(
     host="https://kns-job-13.jxe.10.132.0.56.nip.io/pipeline",
-    ssl_ca_cert=False
+    ssl_ca_cert=False,
     existing_token=token
 )
 
