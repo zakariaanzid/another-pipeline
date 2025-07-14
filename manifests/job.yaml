@@ -35,4 +35,4 @@ spec:
       volumes:
         - name: kfp-token
           secret:
-            secretName: pipeline-token
+            secretName: pipeline-sa-token
