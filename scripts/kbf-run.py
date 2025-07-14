@@ -8,7 +8,16 @@ from kfp.client import Client
 
 #os.environ["NO_PROXY"] = "*.kubeflow,*.local"
 
-client = Client()
+#client = Client()
+
+with open("/var/run/secrets/kfp/token", "r") as f:
+    token = f.read().strip()
+
+client = Client(
+    host="https://kns-job-13.jxe.10.132.0.56.nip.io/pipeline",
+    existing_token=token
+)
+
 #client = Client(host='http://ml-pipeline.kubeflow.svc.cluster.local:8888')
 
 #with open("/var/run/secrets/kubernetes.io/serviceaccount/token", "r") as f:
