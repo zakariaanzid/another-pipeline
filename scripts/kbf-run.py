@@ -43,7 +43,7 @@ from kfp import Client
 from kfp_server_api.configuration import Configuration
 
 # Read token from mounted file
-token_path = os.environ.get("KFP_AUTH_TOKEN_PATH", "/var/run/secrets/kubeflow/token")
+token_path = os.environ.get("KFP_AUTH_TOKEN_PATH", "/var/run/secrets/kfp/token")
 with open(token_path, "r") as f:
     token = f.read().strip()
 
