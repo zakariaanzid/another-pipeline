@@ -3,12 +3,12 @@
 
 # In[1]:
 
-#import os
-#from kfp.client import Client
+import os
+from kfp.client import Client
 
 #os.environ["NO_PROXY"] = "*.kubeflow,*.local"
 
-#client = Client()
+client = Client()
 
 #with open("/var/run/secrets/kfp/token", "r") as f:
 #    token = f.read().strip()
@@ -38,23 +38,23 @@
      #      }
    #)
 
-import os
-from kfp import Client
-from kfp_server_api.configuration import Configuration
+#import os
+#from kfp import Client
+#from kfp_server_api.configuration import Configuration
 
 # Read token from mounted file
-token_path = os.environ.get("KFP_AUTH_TOKEN_PATH", "/var/run/secrets/kfp/token")
-with open(token_path, "r") as f:
-    token = f.read().strip()
+#token_path = os.environ.get("KFP_AUTH_TOKEN_PATH", "/var/run/secrets/kfp/token")
+#with open(token_path, "r") as f:
+#    token = f.read().strip()
 
 # Configure the API client
-host = os.environ.get("KFP_ENDPOINT", "https://kns-job-13.jxe.10.132.0.56.nip.io/pipeline")
-config = Configuration(host=host)
-config.api_key = {"authorization": f"Bearer {token}"}
-config.verify_ssl = False  # If you're using a self-signed cert (as in your case)
+#host = os.environ.get("KFP_ENDPOINT", "https://kns-job-13.jxe.10.132.0.56.nip.io/pipeline")
+#config = Configuration(host=host)
+#config.api_key = {"authorization": f"Bearer {token}"}
+#config.verify_ssl = False  # If you're using a self-signed cert (as in your case)
 
 # Create the KFP client
-client = Client(host=host, existing_config=config)
+#client = Client(host=host, existing_config=config)
 
 
 run = client.create_run_from_pipeline_package(
