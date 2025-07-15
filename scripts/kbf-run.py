@@ -14,8 +14,9 @@ with open("/var/run/secrets/kfp/token", "r") as f:
     token = f.read().strip()
 
 client = Client(
-    host="https://kns-job-13.jxe.10.132.0.56.nip.io",
+    host="https://kns-job-13.jxe.10.132.0.56.nip.io/pipeline",
     verify_ssl=False,
+    namespace="zakaria",
     existing_token=token
 )
 
