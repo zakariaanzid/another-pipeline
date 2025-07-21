@@ -61,7 +61,7 @@ client = Client(
 run = client.create_run_from_pipeline_package(
     '/app/pipHello2.10.0.yaml',
     arguments={
-        'recipient': 'World',
+        'recipient': 'zakaria',
     },
 )
 
